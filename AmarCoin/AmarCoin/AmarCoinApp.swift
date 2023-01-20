@@ -11,7 +11,10 @@ import SwiftUI
 struct AmarCoinApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                HomeView()
+                    .navigationBarHidden(true) //cause we will use custom header
+            }
         }
     }
 }

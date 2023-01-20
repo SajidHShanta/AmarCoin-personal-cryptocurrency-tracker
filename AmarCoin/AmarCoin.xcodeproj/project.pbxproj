@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF272BCA297AECF400D2F439 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF272BC9297AECF400D2F439 /* HomeView.swift */; };
+		FF272BCD297AED4E00D2F439 /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF272BCC297AED4E00D2F439 /* CircleButtonView.swift */; };
 		FF5615B2297AD596002115EC /* AmarCoinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5615B1297AD596002115EC /* AmarCoinApp.swift */; };
 		FF5615B4297AD596002115EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5615B3297AD596002115EC /* ContentView.swift */; };
 		FF5615B6297AD598002115EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF5615B5297AD598002115EC /* Assets.xcassets */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF272BC9297AECF400D2F439 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		FF272BCC297AED4E00D2F439 /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
 		FF5615AE297AD596002115EC /* AmarCoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmarCoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF5615B1297AD596002115EC /* AmarCoinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmarCoinApp.swift; sourceTree = "<group>"; };
 		FF5615B3297AD596002115EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +38,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF272BC7297AEC5500D2F439 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FF272BC8297AEC6400D2F439 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FF272BC9297AECF400D2F439 /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FF272BCB297AED2800D2F439 /* CircleButton */ = {
+			isa = PBXGroup;
+			children = (
+				FF272BCC297AED4E00D2F439 /* CircleButtonView.swift */,
+			);
+			path = CircleButton;
+			sourceTree = "<group>";
+		};
 		FF5615A5297AD596002115EC = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				FF5615BF297AE0E0002115EC /* Extensions */,
+				FF5615C2297AE927002115EC /* Core */,
 				FF5615B1297AD596002115EC /* AmarCoinApp.swift */,
 				FF5615B3297AD596002115EC /* ContentView.swift */,
 				FF5615B5297AD598002115EC /* Assets.xcassets */,
@@ -76,6 +104,32 @@
 				FF5615C0297AE0FC002115EC /* Color.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FF5615C2297AE927002115EC /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				FF5615C8297AEB78002115EC /* Components */,
+				FF5615C3297AE92F002115EC /* Home */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		FF5615C3297AE92F002115EC /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FF272BC8297AEC6400D2F439 /* Views */,
+				FF272BC7297AEC5500D2F439 /* ViewModels */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FF5615C8297AEB78002115EC /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FF272BCB297AED2800D2F439 /* CircleButton */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,7 +203,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF5615B4297AD596002115EC /* ContentView.swift in Sources */,
+				FF272BCA297AECF400D2F439 /* HomeView.swift in Sources */,
 				FF5615B2297AD596002115EC /* AmarCoinApp.swift in Sources */,
+				FF272BCD297AED4E00D2F439 /* CircleButtonView.swift in Sources */,
 				FF5615C1297AE0FC002115EC /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
