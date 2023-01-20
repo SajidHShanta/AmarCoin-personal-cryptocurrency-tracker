@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FF272BCA297AECF400D2F439 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF272BC9297AECF400D2F439 /* HomeView.swift */; };
 		FF272BCD297AED4E00D2F439 /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF272BCC297AED4E00D2F439 /* CircleButtonView.swift */; };
+		FF272BCF297AFC4200D2F439 /* CircleButtonAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF272BCE297AFC4200D2F439 /* CircleButtonAnimationView.swift */; };
 		FF5615B2297AD596002115EC /* AmarCoinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5615B1297AD596002115EC /* AmarCoinApp.swift */; };
 		FF5615B4297AD596002115EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5615B3297AD596002115EC /* ContentView.swift */; };
 		FF5615B6297AD598002115EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF5615B5297AD598002115EC /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		FF272BC9297AECF400D2F439 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FF272BCC297AED4E00D2F439 /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
+		FF272BCE297AFC4200D2F439 /* CircleButtonAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonAnimationView.swift; sourceTree = "<group>"; };
 		FF5615AE297AD596002115EC /* AmarCoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmarCoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF5615B1297AD596002115EC /* AmarCoinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmarCoinApp.swift; sourceTree = "<group>"; };
 		FF5615B3297AD596002115EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				FF272BCC297AED4E00D2F439 /* CircleButtonView.swift */,
+				FF272BCE297AFC4200D2F439 /* CircleButtonAnimationView.swift */,
 			);
 			path = CircleButton;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				FF5615B2297AD596002115EC /* AmarCoinApp.swift in Sources */,
 				FF272BCD297AED4E00D2F439 /* CircleButtonView.swift in Sources */,
 				FF5615C1297AE0FC002115EC /* Color.swift in Sources */,
+				FF272BCF297AFC4200D2F439 /* CircleButtonAnimationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

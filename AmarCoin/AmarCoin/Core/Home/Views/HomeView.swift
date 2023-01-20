@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State private var showProtfolio: Bool = false
+    
     var body: some View {
         ZStack {
             //background layer
@@ -17,13 +19,28 @@ struct HomeView: View {
             //content layer
             VStack {
                 HStack {
-                    CircleButtonView(iconName: "info")
+                    CircleButtonView(iconName: showProtfolio ? "plus" : "info")
+                        .animation(.none, value: showProtfolio)
+                        .background(
+                            CircleButtonAnimationView(animate: $showProtfolio)
+                        )
+                    
                     Spacer()
-                    Text("Live Prices")
+                    
+                    Text(showProtfolio ? "My Protfolio" : "Live Prices")
                         .font(.headline)
                         .foregroundColor(Color.theme.accent)
+                        .animation(.none, value: showProtfolio)
+
                     Spacer()
+                    
                     CircleButtonView(iconName: "chevron.right")
+                        .rotationEffect(Angle(degrees: showProtfolio ? 180 : 0))
+                        .onTapGesture {
+                            withAnimation {
+                                showProtfolio.toggle()
+                            }
+                        }
                 }
                 .padding(.horizontal)
                 Spacer(minLength: 0)
