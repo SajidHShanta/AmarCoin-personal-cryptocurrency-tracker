@@ -18,31 +18,8 @@ struct HomeView: View {
             
             //content layer
             VStack {
-                HStack {
-                    CircleButtonView(iconName: showProtfolio ? "plus" : "info")
-                        .animation(.none, value: showProtfolio)
-                        .background(
-                            CircleButtonAnimationView(animate: $showProtfolio)
-                        )
-                    
-                    Spacer()
-                    
-                    Text(showProtfolio ? "My Protfolio" : "Live Prices")
-                        .font(.headline)
-                        .foregroundColor(Color.theme.accent)
-                        .animation(.none, value: showProtfolio)
-
-                    Spacer()
-                    
-                    CircleButtonView(iconName: "chevron.right")
-                        .rotationEffect(Angle(degrees: showProtfolio ? 180 : 0))
-                        .onTapGesture {
-                            withAnimation {
-                                showProtfolio.toggle()
-                            }
-                        }
-                }
-                .padding(.horizontal)
+                homeHeader
+                
                 Spacer(minLength: 0)
             }
         }
@@ -55,4 +32,34 @@ struct HomeView_Previews: PreviewProvider {
             HomeView()
                 .navigationBarHidden(true) //cause we will use custom header
         }    }
+}
+
+extension HomeView {
+    private var homeHeader: some View {
+        HStack {
+            CircleButtonView(iconName: showProtfolio ? "plus" : "info")
+                .animation(.none, value: showProtfolio)
+                .background(
+                    CircleButtonAnimationView(animate: $showProtfolio)
+                )
+            
+            Spacer()
+            
+            Text(showProtfolio ? "My Protfolio" : "Live Prices")
+                .font(.headline)
+                .foregroundColor(Color.theme.accent)
+                .animation(.none, value: showProtfolio)
+
+            Spacer()
+            
+            CircleButtonView(iconName: "chevron.right")
+                .rotationEffect(Angle(degrees: showProtfolio ? 180 : 0))
+                .onTapGesture {
+                    withAnimation {
+                        showProtfolio.toggle()
+                    }
+                }
+        }
+        .padding(.horizontal)
+    }
 }
