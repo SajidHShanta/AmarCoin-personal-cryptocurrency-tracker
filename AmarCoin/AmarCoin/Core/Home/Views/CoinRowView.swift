@@ -9,8 +9,36 @@ import SwiftUI
 
 struct CoinRowView: View {
     let coin: CoinModel
+    
     var body: some View {
-        Text(coin.name)
+        HStack(spacing: 0.0) {
+            Text("\(coin.rank)")
+                .frame(minWidth: 30)
+                .font(.caption)
+                .foregroundColor(Color.theme.secondaryText)
+            
+            Circle()
+                .frame(width: 30, height: 30)
+            
+            Text("\(coin.symbol.uppercased())")
+                .font(.headline)
+                .foregroundColor(Color.theme.accent)
+                .padding(.leading, 5.0)
+
+            
+            Spacer()
+            
+            VStack(alignment: .trailing) {
+                Text(coin.currentPrice.asCurrecyWith6Decimals())
+                    .bold()
+                    .foregroundColor(Color.theme.accent)
+                
+                Text(coin.priceChangePercentage24H?.asPercentString() ?? "")
+                    .foregroundColor(
+                        (coin.priceChangePercentage24H ?? 0) >= 0 ? Color.theme.green : Color.theme.red
+                    )
+            }
+        }
     }
 }
 
