@@ -15,6 +15,7 @@
 		FF5615B6297AD598002115EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF5615B5297AD598002115EC /* Assets.xcassets */; };
 		FF5615B9297AD598002115EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF5615B8297AD598002115EC /* Preview Assets.xcassets */; };
 		FF5615C1297AE0FC002115EC /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5615C0297AE0FC002115EC /* Color.swift */; };
+		FFE37C04297F0FFA00A08398 /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE37C03297F0FFA00A08398 /* CoinModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		FF5615B5297AD598002115EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF5615B8297AD598002115EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FF5615C0297AE0FC002115EC /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		FFE37C03297F0FFA00A08398 /* CoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				FF5615BF297AE0E0002115EC /* Extensions */,
+				FFE37C02297F0FBB00A08398 /* Models */,
 				FF5615C2297AE927002115EC /* Core */,
 				FF5615B1297AD596002115EC /* AmarCoinApp.swift */,
 				FF5615B3297AD596002115EC /* ContentView.swift */,
@@ -133,6 +136,14 @@
 				FF272BCB297AED2800D2F439 /* CircleButton */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		FFE37C02297F0FBB00A08398 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FFE37C03297F0FFA00A08398 /* CoinModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +222,7 @@
 				FF272BCD297AED4E00D2F439 /* CircleButtonView.swift in Sources */,
 				FF5615C1297AE0FC002115EC /* Color.swift in Sources */,
 				FF272BCF297AFC4200D2F439 /* CircleButtonAnimationView.swift in Sources */,
+				FFE37C04297F0FFA00A08398 /* CoinModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
