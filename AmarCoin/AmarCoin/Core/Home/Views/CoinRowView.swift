@@ -13,6 +13,30 @@ struct CoinRowView: View {
     
     var body: some View {
         HStack(spacing: 0.0) {
+            leftColumn
+            
+            Spacer()
+            
+            if showHoldingsColumn {
+                centerColumn
+            }
+            
+            rightColumn
+        }
+        .font(.subheadline)
+    }
+}
+
+struct CoinRowView_Previews: PreviewProvider {
+    static var previews: some View {
+        //dev.coin come from PreviewProvider extension
+        CoinRowView(coin: dev.coin, showHoldingsColumn: true)
+    }
+}
+
+extension CoinRowView {
+    private var leftColumn: some View {
+        HStack(spacing: 0.0) {
             Text("\(coin.rank)")
                 .frame(minWidth: 30)
                 .font(.caption)
@@ -25,37 +49,29 @@ struct CoinRowView: View {
                 .font(.headline)
                 .foregroundColor(Color.theme.accent)
                 .padding(.leading, 5.0)
-            
-            Spacer()
-            
-            if showHoldingsColumn {
-                VStack(alignment: .trailing) {
-                    Text(coin.currentHoldingsValue.asCurrecyWith6Decimals())
-                        .bold()
-                    
-                    Text((coin.currentHoldings ?? 0.0).asNumberString())
-                }
-            }
-            
-            VStack(alignment: .trailing) {
-                Text(coin.currentPrice.asCurrecyWith6Decimals())
-                    .bold()
-                    .foregroundColor(Color.theme.accent)
-                
-                Text(coin.priceChangePercentage24H?.asPercentString() ?? "")
-                    .foregroundColor(
-                        (coin.priceChangePercentage24H ?? 0) >= 0 ? Color.theme.green : Color.theme.red
-                    )
-            }
-            .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
         }
-        .font(.subheadline)
     }
-}
-
-struct CoinRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        //dev.coin come from PreviewProvider extension
-        CoinRowView(coin: dev.coin, showHoldingsColumn: true)
+    
+    private var centerColumn: some View {
+        VStack(alignment: .trailing) {
+            Text(coin.currentHoldingsValue.asCurrecyWith6Decimals())
+                .bold()
+            
+            Text((coin.currentHoldings ?? 0.0).asNumberString())
+        }
+    }
+    
+    private var rightColumn: some View {
+        VStack(alignment: .trailing) {
+            Text(coin.currentPrice.asCurrecyWith6Decimals())
+                .bold()
+                .foregroundColor(Color.theme.accent)
+            
+            Text(coin.priceChangePercentage24H?.asPercentString() ?? "")
+                .foregroundColor(
+                    (coin.priceChangePercentage24H ?? 0) >= 0 ? Color.theme.green : Color.theme.red
+                )
+        }
+        .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
     }
 }
