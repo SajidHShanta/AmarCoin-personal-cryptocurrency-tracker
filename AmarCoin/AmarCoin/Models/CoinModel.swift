@@ -5,7 +5,7 @@
 //  Created by Sajid Shanta on 24/1/23.
 //
 
-//API info
+//API info  https://www.coingecko.com/en/api/documentation
 /*
  URL:
  https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=true&price_change_percentage=24h
