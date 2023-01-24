@@ -19,6 +19,7 @@
 		FFE37C06297F29E000A08398 /* CoinRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE37C05297F29E000A08398 /* CoinRowView.swift */; };
 		FFE37C08297F2B4E00A08398 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE37C07297F2B4E00A08398 /* PreviewProvider.swift */; };
 		FFE37C0A297F3B2B00A08398 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE37C09297F3B2B00A08398 /* Double.swift */; };
+		FFE37C0C297FEC4F00A08398 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE37C0B297FEC4F00A08398 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		FFE37C05297F29E000A08398 /* CoinRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRowView.swift; sourceTree = "<group>"; };
 		FFE37C07297F2B4E00A08398 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		FFE37C09297F3B2B00A08398 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		FFE37C0B297FEC4F00A08398 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		FF272BC7297AEC5500D2F439 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				FFE37C0B297FEC4F00A08398 /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFE37C06297F29E000A08398 /* CoinRowView.swift in Sources */,
+				FFE37C0C297FEC4F00A08398 /* HomeViewModel.swift in Sources */,
 				FF5615B4297AD596002115EC /* ContentView.swift in Sources */,
 				FF272BCA297AECF400D2F439 /* HomeView.swift in Sources */,
 				FF5615B2297AD596002115EC /* AmarCoinApp.swift in Sources */,

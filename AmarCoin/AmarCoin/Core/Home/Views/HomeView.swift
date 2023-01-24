@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject private var vm: HomeViewModel
     @State private var showProtfolio: Bool = false
     
     var body: some View {
@@ -20,6 +21,13 @@ struct HomeView: View {
             VStack {
                 homeHeader
                 
+                List {
+                    ForEach(vm.allCoins) { coin in
+                        CoinRowView(coin: coin, showHoldingsColumn: false)
+                    }
+                }
+                .listStyle(.plain)
+                
                 Spacer(minLength: 0)
             }
         }
@@ -31,7 +39,9 @@ struct HomeView_Previews: PreviewProvider {
         NavigationView {
             HomeView()
                 .navigationBarHidden(true) //cause we will use custom header
-        }    }
+        }
+        .environmentObject(dev.homeVM)
+    }
 }
 
 extension HomeView {
