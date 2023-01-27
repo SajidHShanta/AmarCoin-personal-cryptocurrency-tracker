@@ -21,6 +21,7 @@
 		FFE37C0A297F3B2B00A08398 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE37C09297F3B2B00A08398 /* Double.swift */; };
 		FFE37C0C297FEC4F00A08398 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE37C0B297FEC4F00A08398 /* HomeViewModel.swift */; };
 		FFE37C0F29800D7600A08398 /* CoinDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE37C0E29800D7600A08398 /* CoinDataService.swift */; };
+		FFE37C3C2983A5D300A08398 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE37C3B2983A5D200A08398 /* NetworkingManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		FFE37C09297F3B2B00A08398 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		FFE37C0B297FEC4F00A08398 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		FFE37C0E29800D7600A08398 /* CoinDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDataService.swift; sourceTree = "<group>"; };
+		FFE37C3B2983A5D200A08398 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		FF5615B0297AD596002115EC /* AmarCoin */ = {
 			isa = PBXGroup;
 			children = (
+				FFE37C3A2983A57B00A08398 /* Utilities */,
 				FF5615BF297AE0E0002115EC /* Extensions */,
 				FFE37C0D29800D4C00A08398 /* Services */,
 				FFE37C02297F0FBB00A08398 /* Models */,
@@ -167,6 +170,14 @@
 				FFE37C0E29800D7600A08398 /* CoinDataService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		FFE37C3A2983A57B00A08398 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				FFE37C3B2983A5D200A08398 /* NetworkingManager.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,6 +258,7 @@
 				FF5615B2297AD596002115EC /* AmarCoinApp.swift in Sources */,
 				FF272BCD297AED4E00D2F439 /* CircleButtonView.swift in Sources */,
 				FF5615C1297AE0FC002115EC /* Color.swift in Sources */,
+				FFE37C3C2983A5D300A08398 /* NetworkingManager.swift in Sources */,
 				FF272BCF297AFC4200D2F439 /* CircleButtonAnimationView.swift in Sources */,
 				FFE37C08297F2B4E00A08398 /* PreviewProvider.swift in Sources */,
 				FFE37C0A297F3B2B00A08398 /* Double.swift in Sources */,
