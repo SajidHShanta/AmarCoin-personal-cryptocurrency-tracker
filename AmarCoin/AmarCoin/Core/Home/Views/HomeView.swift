@@ -70,7 +70,7 @@ extension HomeView {
                 .rotationEffect(Angle(degrees: showProtfolio ? 180 : 0))
                 .onTapGesture {
                     withAnimation {
-                        print("ac: \(vm.allCoins)") 
+                        print("ac: \(vm.allCoins)")
                         showProtfolio.toggle()
                     }
                 }
