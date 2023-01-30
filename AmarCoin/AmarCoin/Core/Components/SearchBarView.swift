@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchBarView: View {
-    @State private var searchText: String = ""
+    @Binding var searchText: String
     
     var body: some View {
         HStack {
@@ -17,12 +17,14 @@ struct SearchBarView: View {
             
             TextField("Search", text: $searchText)
                 .foregroundColor(Color.theme.accent)
+                .autocorrectionDisabled()
                 .overlay(alignment: .trailing) {
                     Image(systemName: "x.circle.fill")
                         .padding() // by adding padding, tappable area is now bigger
                         .offset(x: 10)
                         .foregroundColor(searchText.isEmpty ? Color.theme.secondaryText.opacity(0) : Color.theme.accent)
                         .onTapGesture {
+                            UIApplication.shared.endEditing()
                             searchText = ""
                         }
                 }
@@ -40,7 +42,7 @@ struct SearchBarView: View {
 
 struct SearchBarView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBarView()
+        SearchBarView(searchText: .constant(""))
             .previewLayout(.sizeThatFits)
     }
 }
