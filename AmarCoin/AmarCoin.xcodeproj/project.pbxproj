@@ -26,6 +26,7 @@
 		FFE37C412986BD4300A08398 /* CoinImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE37C402986BD4300A08398 /* CoinImageService.swift */; };
 		FFE37C432986C06700A08398 /* CoinImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE37C422986C06700A08398 /* CoinImageViewModel.swift */; };
 		FFE37C452987B2B700A08398 /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE37C442987B2B700A08398 /* LocalFileManager.swift */; };
+		FFE37C472987DB7C00A08398 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE37C462987DB7C00A08398 /* SearchBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		FFE37C402986BD4300A08398 /* CoinImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageService.swift; sourceTree = "<group>"; };
 		FFE37C422986C06700A08398 /* CoinImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageViewModel.swift; sourceTree = "<group>"; };
 		FFE37C442987B2B700A08398 /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
+		FFE37C462987DB7C00A08398 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 			children = (
 				FFE37C3D2986B9EB00A08398 /* CoinImage */,
 				FF272BCB297AED2800D2F439 /* CircleButton */,
+				FFE37C462987DB7C00A08398 /* SearchBarView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				FF5615B2297AD596002115EC /* AmarCoinApp.swift in Sources */,
 				FF272BCD297AED4E00D2F439 /* CircleButtonView.swift in Sources */,
 				FF5615C1297AE0FC002115EC /* Color.swift in Sources */,
+				FFE37C472987DB7C00A08398 /* SearchBarView.swift in Sources */,
 				FFE37C3C2983A5D300A08398 /* NetworkingManager.swift in Sources */,
 				FF272BCF297AFC4200D2F439 /* CircleButtonAnimationView.swift in Sources */,
 				FFE37C432986C06700A08398 /* CoinImageViewModel.swift in Sources */,
