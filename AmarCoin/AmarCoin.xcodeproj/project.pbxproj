@@ -31,6 +31,7 @@
 		FFE37C452987B2B700A08398 /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE37C442987B2B700A08398 /* LocalFileManager.swift */; };
 		FFE37C472987DB7C00A08398 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE37C462987DB7C00A08398 /* SearchBarView.swift */; };
 		FFE37C492988778400A08398 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE37C482988778400A08398 /* UIApplication.swift */; };
+		FFF85F8F298BC69B00ED6EAE /* MarketDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF85F8E298BC69B00ED6EAE /* MarketDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		FFE37C442987B2B700A08398 /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		FFE37C462987DB7C00A08398 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		FFE37C482988778400A08398 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		FFF85F8E298BC69B00ED6EAE /* MarketDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 			children = (
 				FFE37C03297F0FFA00A08398 /* CoinModel.swift */,
 				FF7F20B8298AA530001DFF8B /* StatisticModel.swift */,
+				FFF85F8E298BC69B00ED6EAE /* MarketDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				FFE37C0C297FEC4F00A08398 /* HomeViewModel.swift in Sources */,
 				FF5615B4297AD596002115EC /* ContentView.swift in Sources */,
 				FFE37C452987B2B700A08398 /* LocalFileManager.swift in Sources */,
+				FFF85F8F298BC69B00ED6EAE /* MarketDataModel.swift in Sources */,
 				FF272BCA297AECF400D2F439 /* HomeView.swift in Sources */,
 				FF7F20BB298AA737001DFF8B /* StatisticView.swift in Sources */,
 				FFE37C3F2986BA1800A08398 /* CoinImageView.swift in Sources */,
