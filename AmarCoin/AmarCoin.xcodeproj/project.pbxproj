@@ -32,6 +32,7 @@
 		FFE37C472987DB7C00A08398 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE37C462987DB7C00A08398 /* SearchBarView.swift */; };
 		FFE37C492988778400A08398 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE37C482988778400A08398 /* UIApplication.swift */; };
 		FFF85F8F298BC69B00ED6EAE /* MarketDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF85F8E298BC69B00ED6EAE /* MarketDataModel.swift */; };
+		FFF85F91298BD31600ED6EAE /* MarketDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF85F90298BD31600ED6EAE /* MarketDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		FFE37C462987DB7C00A08398 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		FFE37C482988778400A08398 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		FFF85F8E298BC69B00ED6EAE /* MarketDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataModel.swift; sourceTree = "<group>"; };
+		FFF85F90298BD31600ED6EAE /* MarketDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 			children = (
 				FFE37C0E29800D7600A08398 /* CoinDataService.swift */,
 				FFE37C402986BD4300A08398 /* CoinImageService.swift */,
+				FFF85F90298BD31600ED6EAE /* MarketDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				FFE37C472987DB7C00A08398 /* SearchBarView.swift in Sources */,
 				FFE37C3C2983A5D300A08398 /* NetworkingManager.swift in Sources */,
 				FF7F20BD298AB296001DFF8B /* HomeStatsView.swift in Sources */,
+				FFF85F91298BD31600ED6EAE /* MarketDataService.swift in Sources */,
 				FF272BCF297AFC4200D2F439 /* CircleButtonAnimationView.swift in Sources */,
 				FFE37C432986C06700A08398 /* CoinImageViewModel.swift in Sources */,
 				FFE37C08297F2B4E00A08398 /* PreviewProvider.swift in Sources */,
