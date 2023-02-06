@@ -37,7 +37,12 @@ struct EditProtfolioView: View {
                 ToolbarItem(placement: .navigationBarTrailing, content: {
                     saveButton
                 })
-
+            }
+            .onChange(of: vm.searchText) { text in
+                //remove selected data on dismiss button (in search bar)
+                if text == "" {
+                    removeSelectedCoin()
+                }
             }
         }
     }
