@@ -12,12 +12,13 @@ class HomeViewModel: ObservableObject {
     @Published var statistics: [StatisticModel] = []
     
     @Published var allCoins: [CoinModel] = []
-    @Published var protfoioCoins: [CoinModel] = []
+    @Published var protfolioCoins: [CoinModel] = []
     
     @Published var searchText: String = ""
     
     private let coinDataService = CoinDataServices()
     private let marketDataService = MarketDataService()
+    private let protfolioDataService = ProtfolioDataService()
     private var cancellebles = Set<AnyCancellable>()
     
     init() {
@@ -25,23 +26,44 @@ class HomeViewModel: ObservableObject {
     }
     
     func addSubscribers() {
-        //update allCoins
+        // update allCoins
         $searchText
         .combineLatest(coinDataService.$allCoins)
-        .debounce(for: 0.5, scheduler: DispatchQueue.main) // add 0.5 sec delay(time interval) before executing filter
+        .debounce(for: 0.2, scheduler: DispatchQueue.main) // add 0.2 sec delay(time interval) before executing filter
         .map(filterCoins)
         .sink { [weak self] (returnedCoins) in
             self?.allCoins = returnedCoins
         }
         .store(in: &cancellebles)
         
-        //uodates market Data
+        // update market Data
         marketDataService.$marketData
             .map(mapGlobalMarketData)
             .sink { [weak self] returnedStats in
                 self?.statistics = returnedStats
             }
             .store(in: &cancellebles)
+        
+        // update protfoio Coins
+        $allCoins
+            .combineLatest(protfolioDataService.$savedEntities)
+            .map { (coinModels, protfolioEntities) -> [CoinModel] in
+                coinModels
+                    .compactMap { coin in
+                        guard let entity = protfolioEntities.first(where: {$0.coinID == coin.id}) else {
+                            return nil
+                        }
+                        return coin.updateHoldings(amount: entity.ammount)
+                    }
+            }
+            .sink { [weak self] returnedCoins in
+                self?.protfolioCoins = returnedCoins
+            }
+            .store(in: &cancellebles)
+    }
+    
+    func updateProtfolio(coin: CoinModel, ammount: Double) {
+        protfolioDataService.updateProtfolio(coin: coin, ammount: ammount)
     }
     
     private func filterCoins(text: String, coins: [CoinModel]) -> [CoinModel] {
