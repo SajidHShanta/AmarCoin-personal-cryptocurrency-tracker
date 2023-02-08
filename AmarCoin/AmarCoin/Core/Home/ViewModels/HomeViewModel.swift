@@ -40,7 +40,7 @@ class HomeViewModel: ObservableObject {
         // update portfolio Coins
         $allCoins
             .combineLatest(portfolioDataService.$savedEntities)
-            .map(mapAllCoinsToProtfolioCoins)
+            .map(mapAllCoinsToPortfolioCoins)
             .sink { [weak self] returnedCoins in
                 self?.portfolioCoins = returnedCoins
             }
@@ -66,6 +66,7 @@ class HomeViewModel: ObservableObject {
         isLoading = true
         coinDataService.getCoins()
         marketDataService.getMarketData()
+        HapticManager.notification(type: .success) // vibrate 
     }
     
     private func filterCoins(text: String, coins: [CoinModel]) -> [CoinModel] {
@@ -79,7 +80,7 @@ class HomeViewModel: ObservableObject {
         }
     }
     
-    private func mapAllCoinsToProtfolioCoins(allCoins: [CoinModel], portfolioEntities: [PortfolioEntity]) -> [CoinModel] {
+    private func mapAllCoinsToPortfolioCoins(allCoins: [CoinModel], portfolioEntities: [PortfolioEntity]) -> [CoinModel] {
         allCoins
             .compactMap { coin in
                 guard let entity = portfolioEntities.first(where: {$0.coinID == coin.id}) else {
