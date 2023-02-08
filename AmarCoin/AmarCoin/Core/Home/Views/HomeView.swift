@@ -35,6 +35,9 @@ struct HomeView: View {
                 if !showPortfolio {
                     allCoinList
                         .transition(.move(edge: .leading))
+                        .refreshable {
+                            vm.reloadData()
+                        }
                 }
                 if showPortfolio {
                     portfolioCoinList
