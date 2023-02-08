@@ -1,5 +1,5 @@
 //
-//  ProtfolioDataService.swift
+//  PortfolioDataService.swift
 //  AmarCoin
 //
 //  Created by Sajid Shanta on 7/2/23.
@@ -8,12 +8,12 @@
 import Foundation
 import CoreData
 
-class ProtfolioDataService {
+class PortfolioDataService {
     private let container: NSPersistentContainer
-    private let containerName: String = "ProtfolioContainer"
-    private let entityName: String = "ProtfolioEntity"
+    private let containerName: String = "PortfolioContainer"
+    private let entityName: String = "PortfolioEntity"
     
-    @Published var savedEntities: [ProtfolioEntity] = []
+    @Published var savedEntities: [PortfolioEntity] = []
     
     init() {
         container = NSPersistentContainer(name: containerName)
@@ -21,28 +21,28 @@ class ProtfolioDataService {
             if let error = error {
                 print("Erreor on loading Core Data. \(error)")
             }
-            self.fetchProtfolio()
+            self.fetchPortfolio()
         }
     }
     
-    private func fetchProtfolio() {
-        let request = NSFetchRequest<ProtfolioEntity>(entityName: entityName)
+    private func fetchPortfolio() {
+        let request = NSFetchRequest<PortfolioEntity>(entityName: entityName)
     
         do {
             savedEntities = try container.viewContext.fetch(request)
         } catch let error {
-            print("Error on fetching Protfolio etities. \(error)")
+            print("Error on fetching Portfolio etities. \(error)")
         }
     }
     
     // MARK: Public functions
     
-    func updateProtfolio(coin: CoinModel, ammount: Double) {
+    func updatePortfolio(coin: CoinModel, ammount: Double) {
 //        if let entity = savedEntities.first(where: { savedEntity in
 //            savedEntity.coinID == coin.id
 //        })
         
-        //check if coin allready in protfolio
+        //check if coin allready in portfolio
         if let entity = savedEntities.first(where: {$0.coinID == coin.id}){
             if ammount > 0 {
                 update(entity: entity, ammount: ammount)
@@ -50,7 +50,7 @@ class ProtfolioDataService {
                 delete(entity: entity)
             }
         } else if ammount > 0{
-            //coin is not in protfolio
+            //coin is not in portfolio
             add(coin: coin, ammount: ammount)
         }
     }
@@ -58,18 +58,18 @@ class ProtfolioDataService {
     // MARK: Private functions
     
     private func add(coin: CoinModel, ammount: Double) {
-        let entity = ProtfolioEntity(context: container.viewContext)
+        let entity = PortfolioEntity(context: container.viewContext)
         entity.coinID = coin.id
         entity.ammount = ammount
         applyChanges()
     }
     
-    func update(entity: ProtfolioEntity, ammount: Double) {
+    func update(entity: PortfolioEntity, ammount: Double) {
         entity.ammount = ammount
         applyChanges()
     }
     
-    func delete(entity: ProtfolioEntity) {
+    func delete(entity: PortfolioEntity) {
         container.viewContext.delete(entity)
         applyChanges()
     }
@@ -84,6 +84,6 @@ class ProtfolioDataService {
     
     private func applyChanges() {
         save()
-        fetchProtfolio()
+        fetchPortfolio()
     }
 }

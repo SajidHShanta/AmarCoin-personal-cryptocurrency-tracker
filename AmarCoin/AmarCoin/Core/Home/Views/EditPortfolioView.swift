@@ -1,5 +1,5 @@
 //
-//  ProtfolioView.swift
+//  PortfolioView.swift
 //  AmarCoin
 //
 //  Created by Sajid Shanta on 3/2/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EditProtfolioView: View {
+struct EditPortfolioView: View {
     @EnvironmentObject private var vm: HomeViewModel
     @Environment(\.dismiss) var dismiss
     
@@ -23,10 +23,10 @@ struct EditProtfolioView: View {
                 coinLogoList
                 
                 if selectedCoin != nil {
-                    protfolioInputForm
+                    portfolioInputForm
                 }
             }
-            .navigationTitle("Edit Protfolio")
+            .navigationTitle("Edit Portfolio")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading, content: {
                     Image(systemName: "xmark")
@@ -48,18 +48,18 @@ struct EditProtfolioView: View {
     }
 }
 
-struct ProtfolioView_Previews: PreviewProvider {
+struct PortfolioView_Previews: PreviewProvider {
     static var previews: some View {
-        EditProtfolioView()
+        EditPortfolioView()
             .environmentObject(dev.homeVM)
     }
 }
 
-extension EditProtfolioView {
+extension EditPortfolioView {
     private var coinLogoList: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack {
-                ForEach(vm.searchText.isEmpty ? vm.protfolioCoins : vm.allCoins) { coin in
+                ForEach(vm.searchText.isEmpty ? vm.portfolioCoins : vm.allCoins) { coin in
                     CoinLogoView(coin: coin)
                         .frame(width: 75)
                         .padding(5)
@@ -82,8 +82,8 @@ extension EditProtfolioView {
     private func updateSelectedCoin(coin: CoinModel) {
         selectedCoin = coin
         
-        if let protfolioCoin = vm.protfolioCoins.first(where: {$0.id == coin.id}) {
-            if let ammount = protfolioCoin.currentHoldings {
+        if let portfolioCoin = vm.portfolioCoins.first(where: {$0.id == coin.id}) {
+            if let ammount = portfolioCoin.currentHoldings {
                 quantityText = "\(ammount)"
             } else {
                 quantityText = ""
@@ -91,7 +91,7 @@ extension EditProtfolioView {
         }
     }
     
-    private var protfolioInputForm: some View {
+    private var portfolioInputForm: some View {
         VStack {
             HStack {
                 Text("Current Price of \(selectedCoin?.symbol.uppercased() ?? ""):")
@@ -159,8 +159,8 @@ extension EditProtfolioView {
             let ammount = Double(quantityText)
         else { return }
         
-        // save to protfolio
-        vm.updateProtfolio(coin: coin, ammount: ammount)
+        // save to portfolio
+        vm.updatePortfolio(coin: coin, ammount: ammount)
         
         // show checkmark
         withAnimation {
