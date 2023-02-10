@@ -16,11 +16,16 @@ class HomeViewModel: ObservableObject {
     
     @Published var searchText: String = ""
     @Published var isLoading: Bool = false
+    @Published var sortOption: SortOption = .holdings // initially, we will start by sorting by Holdings
     
     private let coinDataService = CoinDataServices()
     private let marketDataService = MarketDataService()
     private let portfolioDataService = PortfolioDataService()
     private var cancellebles = Set<AnyCancellable>()
+    
+    enum SortOption {
+        case rank, rankReversed, holdings, holdingsReversed, price, priceReversed
+    }
     
     init() {
         addSubscribers()
@@ -29,9 +34,9 @@ class HomeViewModel: ObservableObject {
     func addSubscribers() {
         // update allCoins
         $searchText
-        .combineLatest(coinDataService.$allCoins)
+        .combineLatest(coinDataService.$allCoins, $sortOption)
         .debounce(for: 0.2, scheduler: DispatchQueue.main) // add 0.2 sec delay(time interval) before executing filter
-        .map(filterCoins)
+        .map(filterAndSortCoins)
         .sink { [weak self] (returnedCoins) in
             self?.allCoins = returnedCoins
         }
@@ -42,7 +47,8 @@ class HomeViewModel: ObservableObject {
             .combineLatest(portfolioDataService.$savedEntities)
             .map(mapAllCoinsToPortfolioCoins)
             .sink { [weak self] returnedCoins in
-                self?.portfolioCoins = returnedCoins
+                guard let self = self else { return }
+                self.portfolioCoins = self.sortPortfolioCoinsIfNeeded(coins: returnedCoins)
             }
             .store(in: &cancellebles)
         
@@ -69,6 +75,13 @@ class HomeViewModel: ObservableObject {
         HapticManager.notification(type: .success) // vibrate 
     }
     
+    private func filterAndSortCoins(text: String, coins: [CoinModel], sortOption: SortOption) -> [CoinModel] {
+        var updatedCoins = filterCoins(text: text, coins: coins)
+//        let sortedCoins = sortCoins(coins: updatedCoins, sortOption: sortOption)
+        sortCoins(coins: &updatedCoins, sortOption: sortOption)
+        return updatedCoins
+    }
+    
     private func filterCoins(text: String, coins: [CoinModel]) -> [CoinModel] {
         guard !text.isEmpty else {
             return coins
@@ -77,6 +90,44 @@ class HomeViewModel: ObservableObject {
         let lowercasedText = text.lowercased()
         return coins.filter { coin in
             coin.name.lowercased().contains(lowercasedText) || coin.symbol.lowercased().contains(lowercasedText) || coin.id.lowercased().contains(lowercasedText)
+        }
+    }
+    
+//    private func sortCoins(coins: [CoinModel], sortOption: SortOption) -> [CoinModel] {
+//        switch sortOption {
+//        case .rank, .holdings:
+//            return coins.sorted(by: {$0.rank < $1.rank})
+//        case .rankReversed, .holdingsReversed:
+//            return coins.sorted(by: {$0.rank > $1.rank})
+//        case .price:
+//            return coins.sorted(by: {$0.currentPrice > $1.currentPrice})
+//        case .priceReversed:
+//            return coins.sorted(by: {$0.currentPrice < $1.currentPrice})
+//        }
+//    }
+    
+    private func sortCoins(coins: inout [CoinModel], sortOption: SortOption) {
+        switch sortOption {
+        case .rank, .holdings:
+            coins.sort(by: {$0.rank < $1.rank})
+        case .rankReversed, .holdingsReversed:
+            coins.sort(by: {$0.rank > $1.rank})
+        case .price:
+            coins.sort(by: {$0.currentPrice > $1.currentPrice})
+        case .priceReversed:
+            coins.sort(by: {$0.currentPrice < $1.currentPrice})
+        }
+    }
+    
+    private func sortPortfolioCoinsIfNeeded(coins: [CoinModel]) -> [CoinModel] {
+        // only sort by holdins or reversed holdings
+        switch sortOption {
+        case .holdings:
+            return coins.sorted(by: {$0.currentHoldingsValue > $1.currentHoldingsValue})
+        case .holdingsReversed:
+            return coins.sorted(by: {$0.currentHoldingsValue < $1.currentHoldingsValue})
+        default:
+            return coins
         }
     }
     
